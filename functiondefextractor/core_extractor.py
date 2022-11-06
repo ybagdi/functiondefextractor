@@ -566,7 +566,8 @@ def remove_comments(dataframe):
     for i in range(len(dataframe).__trunc__()):
         for line in dataframe.iat[i, 1].splitlines():
             if not line.strip().startswith(("#", "//", "/*", "*", "*/")):  # pragma: no mutate
-                data = data + line.strip().split(";")[0] + os.linesep
+#                 data = data + line.strip().split(";")[0] + os.linesep
+                data = data + line.split(";")[0] + os.linesep
         filtered_code.append(data)
         data = ""
     dataframe["Code"] = filtered_code
